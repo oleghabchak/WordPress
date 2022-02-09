@@ -1,2 +1,1 @@
-# WordPress
-pet-project
+# pet-project
