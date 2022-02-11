@@ -22,8 +22,13 @@
   },
   "homepage": "https://github.com/oleghabchak/telegramBot#readme",
   "dependencies": {
+<<<<<<< Updated upstream
     "heroku": "^7.59.2",
     "node-telegram-bot-api": "^0.56.0",
     "nodemon": "^2.0.15"
+=======
+    "nodemon": "^2.0.15",
+    "telegraf": "^4.7.0"
+>>>>>>> Stashed changes
   }
 }
