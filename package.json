@@ -1,11 +1,14 @@
 {
-  "name": "telegramBot",
+  "name": "telegram_bot",
   "version": "1.0.0",
   "description": "pet-project",
   "main": "bot.js",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js"
+  },
+  "engines": {
+    "node": "14.17.6"
   },
   "repository": {
     "type": "git",
