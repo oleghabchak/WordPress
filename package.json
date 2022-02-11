@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/oleghabchak/telegramBot#readme",
   "dependencies": {
+    "heroku": "^7.59.2",
     "node-telegram-bot-api": "^0.56.0",
     "nodemon": "^2.0.15"
   }
