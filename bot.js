@@ -4,23 +4,24 @@ const token = "1150536330:AAGOwL8xJZGXlW4B5y8ZRvyYJb2vEftOlvc"
 const bot = new TelegramApi(token, {polling:true})
 
 
-bot.on('message', (msg) => {
-    const chatId = msg.chat.id
-    if (msg.text == 'dog','cat') {
-      bot.sendMessage(chatId, "You sent 'dog'")
-    }
-  })
+
 
 bot.on("message", async msg =>{
     const text = msg.text;
     const chatId = msg.chat.id;
-   
-    let stiker = `https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Nitra_-_Panorama_01.JPG/800px-Nitra_-_Panorama_01.JPG`
+    console.log(msg);
 
-    if (text === "/start") {
-       await bot.sendSticker(chatId, looks[5]);
-       await bot.sendMessage(chatId, `Hello ${msg.from.first_name}`)
+    switch (text) {
+        case "лук":
+            await bot.sendMessage(chatId, `Hello ${msg.from.first_name}`)
+            break;
+        case "сока":
+            await bot.sendMessage(chatId, `сока дня`)
+            break;
+        default:
+            await bot.sendMessage(chatId, `Не вмієш сі бавити іди додому🤷‍♀️`);
     }
+    
 })
 
 
@@ -59,6 +60,16 @@ const looks = [
     "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/4.webp",
     "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/5.webp",
     "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/6.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
     "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
     
 ]
