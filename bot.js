@@ -3,31 +3,55 @@ const token = "1150536330:AAGOwL8xJZGXlW4B5y8ZRvyYJb2vEftOlvc"
 
 const bot = new TelegramApi(token, {polling:true})
 
+const start = () => {
 
+bot.setMyCommands([
+    {command: "/soka", description: "Дізнатися СОКУ дня і який у неї лук"},
+    {command: "/stat", description: "Статистика"}
+]);
 
-
-bot.on("message", async msg =>{
+bot.on("message", async msg => {
     const text = msg.text;
     const chatId = msg.chat.id;
+
     console.log(msg);
-
     switch (text) {
-        case "лук":
-            await bot.sendMessage(chatId, `Hello ${msg.from.first_name}`)
+        case "/stat":
+            return bot.sendMessage(chatId, `статістіка`)
             break;
-        case "сока":
-            await bot.sendMessage(chatId, `сока дня`)
-            break;
+            
+        case "/soka":
+            /*==================== Учасники  ====================*/
+                const users = [
+                    {name: "Марта Жолобак"},
+                    {name: "Марія Габчак"},
+                    {name: "Олег Габчак"},
+                    {name: "Віра Пшеничка"},
+                    {name: "Сніжана Сахарчук"}
+                ]
+                let soka = users[randomNum(0, 5)].name
+            return bot.sendMessage(chatId, `сока дня ${soka}`)
+            
         default:
-            await bot.sendMessage(chatId, `Не вмієш сі бавити іди додому🤷‍♀️`);
+            return bot.sendMessage(chatId, `Не вмієш ci бавити іди додому🤷‍♀️`);
     }
-    
-})
+  })
+}
+
+start()
 
 
 
 
 
+
+/*==================== рандомне число ===================*/
+function randomNum(a, b) {
+    return  Math.floor(Math.random() * b) + a;
+    // Function returns the product of a and b
+  }
+
+console.log(randomNum(1,4));
 
 /*==================== отримуємо день року ====================*/
 
