@@ -1,0 +1,29 @@
+{
+  "name": "telegram_bot",
+  "version": "1.0.0",
+  "description": "pet-project",
+  "main": "bot.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "14.17.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oleghabchak/telegramBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oleghabchak/telegramBot/issues"
+  },
+  "homepage": "https://github.com/oleghabchak/telegramBot#readme",
+  "dependencies": {
+    "heroku": "^7.59.2",
+    "node-telegram-bot-api": "^0.56.0",
+    "nodemon": "^2.0.15"
+  }
+}
