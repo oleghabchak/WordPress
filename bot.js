@@ -1,26 +1,30 @@
 const TelegramApi = require("node-telegram-bot-api")
 const token = "1150536330:AAGOwL8xJZGXlW4B5y8ZRvyYJb2vEftOlvc" 
-
+const data = require("./data.json")
 const bot = new TelegramApi(token, {polling:true})
+const fs = require("fs")
 
+  
+const newData = [
+    {"marta": "21"}
+]
 const start = () => {
 
-bot.setMyCommands([
-    {command: "/soka", description: "Дізнатися СОКУ дня і який у неї лук"},
-    {command: "/stat", description: "Статистика"}
-]);
+  
+// bot.setMyCommands([
+//     {command: "/soka", description: "Дізнатися СОКУ дня і який у неї лук"},
+//     {command: "/stat", description: "Статистика"}
+// ]);
 
 bot.on("message", async msg => {
     const text = msg.text;
     const chatId = msg.chat.id;
 
-    console.log(msg);
     switch (text) {
-        case "/stat":
-            return bot.sendMessage(chatId, `статістіка`)
-            break;
+        
             
         case "/soka":
+            
             /*==================== Учасники  ====================*/
                 const users = [
                     {name: "Марта Жолобак"},
@@ -76,8 +80,67 @@ date365 = date365 + currentDay;
 console.log(date365);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*==================== масив з Луками дня ====================*/
 const looks = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
     "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/1.webp",
     "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/2.webp",
     "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/3.webp",
