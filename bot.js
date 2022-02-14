@@ -1,8 +1,9 @@
 const TelegramApi = require("node-telegram-bot-api")
 const token = "1150536330:AAGOwL8xJZGXlW4B5y8ZRvyYJb2vEftOlvc" 
-const data = require("./data.json")
+
 const bot = new TelegramApi(token, {polling:true})
-const fs = require("fs")
+
+
 
   
 const newData = [
@@ -27,15 +28,16 @@ bot.on("message", async msg => {
             
             /*==================== Учасники  ====================*/
                 const users = [
-                    {name: "Марта Жолобак"},
-                    {name: "Марія Габчак"},
-                    {name: "Олег Габчак"},
-                    {name: "Віра Пшеничка"},
-                    {name: "Сніжана Сахарчук"}
+                    {name: "Марта Жолобак", id: 1},
+                    {name: "Марія Габчак", id: 2},
+                    {name: "Олег Габчак", id: 3},
+                    {name: "Віра Пшеничка", id: 4},
+                    {name: "Сніжана Сахарчук", id: 5}
                 ]
-                let soka = users[randomNum(0, 5)].name
-            return bot.sendMessage(chatId, `сока дня ${soka}`)
-            
+                let soka = users[randomNum(0, 5)]
+            return (
+            bot.sendMessage(chatId, `сока дня ${soka.name}`),
+            console.log(soka.id))
         default:
             return bot.sendMessage(chatId, `Не вмієш ci бавити іди додому🤷‍♀️`);
     }

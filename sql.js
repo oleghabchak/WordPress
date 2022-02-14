@@ -1,29 +1,23 @@
-const { Client } = require('pg');
-
-const client = new Client({
-    user: 'vsbkbtzrykfmjd',
-    host: 'ec2-18-203-64-130.eu-west-1.compute.amazonaws.com',
-    database: 'dc0q53lqdh1p3p',
-    password: 'd3e297657c483830458ed72ea387271035d4404fc353963076d3480654cb0659',
-    port: 5432,
+const mariadb = require('mariadb');
+const pool = mariadb.createPool({
+    host: "109.94.209.66",
+  port:3306,
+  user: "admin6247k",
+  password: "lao6247K",
+  database:"trainlist"
 });
-
-client.connect();
-
-const query = `
-CREATE TABLE users (
-    email varchar,
-    firstName varchar,
-    lastName varchar,
-    age int
-);
-`;
-client.query(query, (err, res) => {
-    if (err) {
-        console.error(err);
-        return;
-    }
-    console.log('Table is successfully created');
-    client.end();
-});
-
+pool.getConnection()
+    .then(conn => {
+    
+      conn.query("SELECT 1 as value")
+        .then((rows) => {
+          console.log(rows); //[ {val: 1}, meta: ... ]
+          //Table must have been created before 
+          // " CREATE TABLE myTable (id int, val varchar(255)) "
+          return conn.query("UPDATE sokaT SET value = 3121 WHERE id=1;");
+        })
+        
+        
+    }).catch(err => {
+      console.log(err);
+    });
