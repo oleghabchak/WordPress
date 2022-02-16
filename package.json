@@ -25,6 +25,10 @@
     "heroku": "^7.59.2",
     "mariadb": "^2.5.5",
     "node-telegram-bot-api": "^0.56.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "type": "module"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.16.8"
   }
 }

@@ -1,47 +1,76 @@
 const TelegramApi = require("node-telegram-bot-api")
 const token = "1150536330:AAGOwL8xJZGXlW4B5y8ZRvyYJb2vEftOlvc" 
+const mariadb = require('mariadb');
+const pool = mariadb.createPool({
+    host: "109.94.209.66",
+    port:3306,
+    user: "admin6247k",
+    password: "lao6247K",
+    database:"trainlist"
+});
 
 const bot = new TelegramApi(token, {polling:true})
+/*==================== Запити в базу даних ====================*/
+const updateStat = (id) => { 
+    pool.getConnection()
+        .then(conn => {
+          conn.query("SELECT 1 as value")
+            .then(() => {
+              console.log( "Successful Update!"); 
+              return conn.query(`UPDATE sokaT SET value = value+1 WHERE id=${id}`);
+            })   
+        }).catch(err => {
+          console.log(err);
+        });
+  }
+
+  async function getStat(){
+      
+          let conn = await pool.getConnection();
+          let all = await conn.query('SELECT * FROM sokaT') 
+          console.log(all);
+        return all
+  }
 
 
 
-  
-const newData = [
-    {"marta": "21"}
-]
 const start = () => {
 
   
-// bot.setMyCommands([
-//     {command: "/soka", description: "Дізнатися СОКУ дня і який у неї лук"},
-//     {command: "/stat", description: "Статистика"}
-// ]);
+    // bot.setMyCommands([
+    //     {command: "/soka", description: "Дізнатися СОКУ дня і який у неї лук"},
+    //     {command: "/stat", description: "Статистика"}
+    // ]);
 
-bot.on("message", async msg => {
-    const text = msg.text;
-    const chatId = msg.chat.id;
+    bot.on("message", async msg => {
+        const text = msg.text;
+        const chatId = msg.chat.id;
 
-    switch (text) {
-        
-            
-        case "/soka":
-            
-            /*==================== Учасники  ====================*/
-                const users = [
-                    {name: "Марта Жолобак", id: 1},
-                    {name: "Марія Габчак", id: 2},
-                    {name: "Олег Габчак", id: 3},
-                    {name: "Віра Пшеничка", id: 4},
-                    {name: "Сніжана Сахарчук", id: 5}
-                ]
-                let soka = users[randomNum(0, 5)]
-            return (
-            bot.sendMessage(chatId, `сока дня ${soka.name}`),
-            console.log(soka.id))
-        default:
-            return bot.sendMessage(chatId, `Не вмієш ci бавити іди додому🤷‍♀️`);
-    }
-  })
+        switch (text) {
+            case "/stat" :
+                return(
+                    bot.sendMessage(chatId, 'Список сок дня'),
+                    getStat()
+
+                )
+                
+            case "/soka":
+                    const users = [
+                        {name: "Марта Жолобак", id: 1},
+                        {name: "Марія Габчак", id: 2},
+                        {name: "Олег Габчак", id: 3},
+                        {name: "Віра Пшеничка", id: 4},
+                        {name: "Сніжана Сахарчук", id: 5}
+                    ]
+                    let soka = users[randomNum(0, 5)]
+                return (
+                bot.sendMessage(chatId, `сока дня ${soka.name}`),
+                updateStat(soka.id)
+                )
+            default:
+                return bot.sendMessage(chatId, `Не вмієш ci бавити іди додому🤷‍♀️`);
+        }
+    })
 }
 
 start()
