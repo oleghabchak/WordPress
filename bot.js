@@ -37,10 +37,10 @@ const updateStat = (id) => {
 const start = () => {
 
   
-    // bot.setMyCommands([
-    //     {command: "/soka", description: "Дізнатися СОКУ дня і який у неї лук"},
-    //     {command: "/stat", description: "Статистика"}
-    // ]);
+    bot.setMyCommands([
+        {command: "/soka", description: "Дізнатися СОКУ дня і який у неї лук"},
+        {command: "/stat", description: "Статистика"}
+    ]);
 
     bot.on("message", async msg => {
         const text = msg.text;
