@@ -11,13 +11,15 @@ const pool = mariadb.createPool({
 
 const bot = new TelegramApi(token, {polling:true})
 /*==================== Запити в базу даних ====================*/
-const updateStat = (id) => { 
+const updateStat = (id, date) => { 
     pool.getConnection()
         .then(conn => {
           conn.query("SELECT 1 as value")
             .then(() => {
               console.log( "Successful Update!"); 
-              return conn.query(`UPDATE sokaT SET value = value+1 WHERE id=${id}`);
+              return conn.query(`UPDATE sokaT SET value = value+1 WHERE id=${id}`),
+              conn.query(`UPDATE sokaT SET value = ${date} WHERE id=6`);
+
             })   
         }).catch(err => {
           console.log(err);
@@ -38,8 +40,8 @@ const start = () => {
 
   
     bot.setMyCommands([
-        // {command: "/soka", description: "Дізнатися СОКУ дня і який у неї лук"},
-        // {command: "/stat", description: "Статiстiка!"}
+        {command: "/soka", description: "Дізнатися СОКУ дня і який у неї лук"},
+        {command: "/stat", description: "Статiстiка!"}
     ]);
 
     bot.on("message", async msg => {
@@ -47,10 +49,10 @@ const start = () => {
         const chatId = msg.chat.id;
 
         switch (text) {
+
             case "/stat" :
                 return(
                     statData = await getStat(),
-            
                     bot.sendMessage(chatId,`Список СОК дня за весь час:
 
                     ${statData[0].name}    *| ${statData[0].value} |
@@ -69,6 +71,9 @@ const start = () => {
                 )
                 
             case "/soka":
+                statData = await getStat()
+                console.log()
+                if (statData[5].value !== dateYear) {
                     const users = [
                         {name: "Марта Жолобак ", id: 1},
                         {name: "Марія Габчак", id: 2},
@@ -78,23 +83,18 @@ const start = () => {
                     ]
                     let soka = users[randomNum(0, 5)]
                 return (
+                    
+                    // if (statData[5].value === 49 ) {console.log(124235)},
                     setTimeout(() => { bot.sendMessage(chatId, `${text1[randomNum(0, 9)]}`)}, 1000),
-                    setTimeout(() => { bot.sendMessage(chatId, `${text1[randomNum(0, 9)]}`)}, 3000),
-                    setTimeout(() => { bot.sendMessage(chatId, `${text1[randomNum(0, 9)]}`)}, 5000),
-                    setTimeout(() => { bot.sendMessage(chatId, `${text1[randomNum(0, 9)]}${soka.name}`)}, 7000)
+                    setTimeout(() => { bot.sendMessage(chatId, `${text2[randomNum(0, 9)]}`)}, 3000),
+                    setTimeout(() => { bot.sendMessage(chatId, `${text3[randomNum(0, 9)]}`)}, 5000),
+                    setTimeout(() => { bot.sendMessage(chatId, `${text4[randomNum(0, 9)]}${soka.name}`)}, 7000),
+                    updateStat(soka.id, dateYear)
                     
-                    
-                    
-                    
-                    
-                    
-                    // setInterval(bot.sendMessage(chatId, `${text3[randomNum(0, 9)]}`), 3000)
-                    
-                // bot.sendMessage(chatId, `сока дня ${soka.name}`),
-                // updateStat(soka.id)
                 )
+                }
             default:
-                return bot.sendMessage(chatId, `Не вмієш ci бавити іди додому🤷‍♀️`);
+                return bot.sendMessage(chatId, `СОКА дня відома! `);
         }
     })
 }
@@ -133,8 +133,9 @@ if (leapYear.getDate() == 29) { // If it's a leap year, changes 28 to 29
 for ( i=0; i < currentMonth; i++ ) { 
     date365 = date365 + monthLength[i];
 }
-date365 = date365 + currentDay; 
-console.log(date365);
+let dateYear = date365 + currentDay; 
+
+console.log(dateYear);
 
 /*==================== Рандомні повідомлення ===================*/
 let text1 = ['Навіщо ви мене розбудили...',
@@ -181,10 +182,13 @@ let text4 = ['Ага! Вітаю! Сьогодні *ти підор* - ',
              'Хто тут у нас *підор дня*? Ти *підор дня* - ',
              'Ну ти і *підор*, ',
              'Няшний *підор дня* - ',
-             'Ого, ви подивіться тільки! А *підор дня-то - ',
+             'Ого, ви подивіться тільки! СОКА дня-то - ',
              'Стояти! Не рухатись! Ви оголошені *підором дня*, ',
              'Що? Де? Коли? А ти *підор дня* - ',
              '*Підор дня* звичайний, 1шт. - ']
+let textWrong = [
+    'Не вмієш ci бавити іди додому🤷‍♀️'
+]
 
 
 
