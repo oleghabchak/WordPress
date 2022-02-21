@@ -55,11 +55,11 @@ const start = () => {
                     statData = await getStat(),
                     bot.sendMessage(chatId,`Список СОК дня за весь час:
 
-                    ${statData[0].name}    *| ${statData[0].value} |
-                    ${statData[1].name}         *| ${statData[1].value} |
-                    ${statData[2].name}           *| ${statData[2].value} |
-                    ${statData[3].name}      *| ${statData[3].value} |
-                    ${statData[4].name}*| ${statData[4].value} |
+        ${statData[0].name}    *| ${statData[0].value} |
+        ${statData[1].name}         *| ${statData[1].value} |
+        ${statData[2].name}           *| ${statData[2].value} |
+        ${statData[3].name}      *| ${statData[3].value} |
+        ${statData[4].name}*| ${statData[4].value} |
                     `)
                     // FOREACH 
                     // bot.sendMessage(chatId,"Список СОК дня за весь час:"),
