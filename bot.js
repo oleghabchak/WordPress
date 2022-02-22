@@ -85,10 +85,10 @@ const start = () => {
                 return (
                     
                     // if (statData[5].value === 49 ) {console.log(124235)},
-                    setTimeout(() => { bot.sendMessage(chatId, `${text1[randomNum(0, 9)]}`)}, 1000),
-                    setTimeout(() => { bot.sendMessage(chatId, `${text2[randomNum(0, 9)]}`)}, 3000),
-                    setTimeout(() => { bot.sendMessage(chatId, `${text3[randomNum(0, 9)]}`)}, 5000),
-                    setTimeout(() => { bot.sendMessage(chatId, `${text4[randomNum(0, 9)]}${soka.name}`)}, 7000),
+                    setTimeout(() => { bot.sendMessage(chatId, `${text1[randomNum(0, 10)]}`)}, 1000),
+                    setTimeout(() => { bot.sendMessage(chatId, `${text2[randomNum(0, 12)]}`)}, 3000),
+                    setTimeout(() => { bot.sendMessage(chatId, `${text3[randomNum(0, 11)]}`)}, 5000),
+                    setTimeout(() => { bot.sendMessage(chatId, `${text4[randomNum(0, 12)]}${soka.name}`)}, 7000),
                     updateStat(soka.id, dateYear)
                     
                 )
@@ -114,7 +114,7 @@ function randomNum(a, b) {
     // Function returns the product of a and b
   }
 
-console.log(randomNum(1,4));
+
 
 /*==================== отримуємо день року ====================*/
 
@@ -137,7 +137,8 @@ for ( i=0; i < currentMonth; i++ ) {
 }
 let dateYear = date365 + currentDay; 
 
-console.log(dateYear);
+console.log("День року:",dateYear);
+
 
 /*==================== Рандомні повідомлення ===================*/
 let text1 = ['Навіщо ви мене розбудили...',
@@ -149,8 +150,8 @@ let text1 = ['Навіщо ви мене розбудили...',
             'Вам ще не надоїло!?',
             'Святий Боже, святий кріпкий, я з Уличного, а ти звідки?',
              'Гей, навіщо ви мене розбудили...',
-             
              'Woop-woop! Thats the sound of da SOKA-police!']
+             
 let text2 = ['Ведеться пошук у базі даних',
              'Військовий супутник запущений, коди доступу всередині...',
              'Виїжджаю на місце..._',
@@ -169,7 +170,6 @@ let text3 = ['Ведеться захоплення підозрюваного..
              'Будинкові книги села Воютичі переглянуті',
              'Не може бути!',
              'Ого-го...',
-             
              'Перевіряю дані...',
              'Так, що тут у нас?',
              'Так-так, що ж тут у нас...',
