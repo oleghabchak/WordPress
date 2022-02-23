@@ -39,7 +39,8 @@ const updateStat = (id, date) => {
 const start = () => {
 
     bot.setMyCommands([
-        {command: "/soka", description: "Дізнатися СОКУ дня і який у неї лук"},
+        {command: "/soka", description: "Дізнатися СОКУ дня!!! "},
+        {command: "/look", description: "Дізнатися який у СОКИ лук дня:)"},
         {command: "/stat", description: "Статiстiка!"}
     ]);
 
@@ -205,8 +206,8 @@ let lookText = [
 'Наряд, який СОКА одягне до Марії на заручини...',
 'Наряд, який СОКА одягне до Сніжани на розписку...',
 'Наряд, який СОКА одягне до Марти на стрижини її 3 дитини...',
-'Лук в якому СОКА піде сьогодні на роботу',
-'Лук в якому СОКА буде плести вінці ',
+'Лук, в якому СОКА піде сьогодні на роботу',
+'Лук, в якому СОКА буде плести вінці ',
 ]
 /*==================== масив з Луками дня ====================*/
 
@@ -281,12 +282,11 @@ const looks = [
     "http://img.funtema.ru/2011/01/03012011/7/8.jpg",
     "http://img.funtema.ru/2011/01/03012011/7/9.jpg",
     "http://img.funtema.ru/2011/01/03012011/7/10.jpg",
-    
-    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
-    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
-    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
-    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
-    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
-    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/7.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/1.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/2.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/3.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/4.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/5.webp",
+    "https://cdn.tlgrm.app/stickers/14d/5af/14d5afd7-6c55-328b-b26b-a8d72beb5530/192/6.webp",
     
 ]
