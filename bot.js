@@ -39,8 +39,13 @@ const updateStat = (id, date) => {
 const start = () => {
 
     bot.setMyCommands([
+<<<<<<< HEAD
         {command: "/soka", description: "Дізнатися СОКУ дня!!! "},
         {command: "/look", description: "Дізнатися який у СОКИ лук дня:)"},
+=======
+        {command: "/soka", description: "Дізнатися СОКУ дня !)"},
+        {command: "/look", description: "Дізнатися який у неї лук"},
+>>>>>>> 423e5d6afe3a31aad40859697a14cf499857f231
         {command: "/stat", description: "Статiстiка!"}
     ]);
 
