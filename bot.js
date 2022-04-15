@@ -41,7 +41,7 @@ const start = () => {
     bot.setMyCommands([
 <<<<<<< HEAD
         {command: "/soka", description: "Дізнатися СОКУ дня!!! "},
-        {command: "/look", description: "Дізнатися який у СОКИ лук дня:)"},
+        {command: "/look", description: "Дізнатися який у СОКИ лук"},
 =======
         {command: "/soka", description: "Дізнатися СОКУ дня !)"},
         {command: "/look", description: "Дізнатися який у неї лук"},
