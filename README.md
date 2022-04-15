@@ -1,2 +1,2 @@
-# User of the Day 
+# WordPress
 pet-project
