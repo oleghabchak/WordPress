@@ -4,8 +4,8 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
     host: "109.94.209.66",
     port:3306,
-    user: "DBname",
-    password: "DBpassword",
+    user: "admin6247k",
+    password: "lao6247K",
     database:"trainlist"
 });
 
@@ -39,13 +39,8 @@ const updateStat = (id, date) => {
 const start = () => {
 
     bot.setMyCommands([
-<<<<<<< HEAD
         {command: "/soka", description: "Дізнатися СОКУ дня !)"},
         {command: "/look", description: "Дізнатися який у СОКИ лук"},
-=======
-        {command: "/soka", description: "Дізнатися СОКУ дня !)"},
-        {command: "/look", description: "Дізнатися який у СОКИ лук"},
->>>>>>> 423e5d6afe3a31aad40859697a14cf499857f231
         {command: "/stat", description: "Статiстiка!"}
     ]);
 
